@@ -7,7 +7,6 @@ import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.annotation.processing.Generated;
 import javax.persistence.*;
 import java.time.LocalDate;
 
