@@ -9,6 +9,7 @@ import lombok.experimental.SuperBuilder;
 import javax.persistence.*;
 
 import static javax.persistence.GenerationType.IDENTITY;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -24,9 +25,14 @@ public class Bet {
     private Long value;
 
     @ManyToOne
+    @JoinColumn(name = "user_account_id")
     private UserAccount userAccount;
 
     @OneToOne
+    @JoinColumn(name = "game_result_id")
     private GameResult gameResult;
+
+    @OneToOne(mappedBy = "bet")
+    private BetResult betResult;
 
 }

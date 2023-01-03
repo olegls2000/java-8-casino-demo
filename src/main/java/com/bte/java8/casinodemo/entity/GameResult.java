@@ -28,4 +28,6 @@ public class GameResult {
     private BetItem position3;
     @Column(name = "game_time")
     private LocalDateTime gameTime;
+    @OneToOne(mappedBy = "gameResult")
+    private Bet bet;
 }

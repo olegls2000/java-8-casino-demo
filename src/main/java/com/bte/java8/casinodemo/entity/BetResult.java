@@ -6,10 +6,7 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
@@ -19,13 +16,22 @@ import static javax.persistence.GenerationType.IDENTITY;
 @SuperBuilder
 @ToString
 
-//@Entity
+@Entity
 @Table(name = "bet_result")
 public class BetResult {
     @Id
     @GeneratedValue(strategy = IDENTITY)
     private Long id;
+
+    @Column(name = "balance")
     private Long balance;
+
+    @ManyToOne
+    @JoinColumn(name = "user_account_id")
     private UserAccount userAccount;
+
+    @OneToOne
+    @JoinColumn(name = "bet_id")
+    private Bet bet;
 
 }

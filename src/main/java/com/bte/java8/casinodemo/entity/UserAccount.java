@@ -9,6 +9,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Collection;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
@@ -39,4 +40,9 @@ public class UserAccount {
     private String email;
     @Column(name = "password")
     private String password;
+    @OneToMany(mappedBy = "userAccount")
+    private Collection<Bet> bets;
+
+    @OneToMany(mappedBy = "userAccount")
+    private Collection<BetResult> betResults;
 }

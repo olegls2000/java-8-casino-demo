@@ -13,7 +13,7 @@ public class UserAccountController {
     @Autowired
     private UserAccountRepository repository;
 
-    @PostMapping("/add-user")
+    @PostMapping("/user/add")
     public void addUserAccount(UserAccount userAccount) {
         System.out.println("User was successfully created: " + userAccount);
         repository.save(userAccount);
